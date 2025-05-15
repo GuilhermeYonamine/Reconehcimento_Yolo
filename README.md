@@ -21,4 +21,4 @@ Este projeto combina:
 ![Imagem 1 ](/assets/Print1.png)
 
 ## Exemplo 2
-![Imagem 1 ](/assets/Print3.png)
+![Imagem 2 ](/assets/Print3.png)
