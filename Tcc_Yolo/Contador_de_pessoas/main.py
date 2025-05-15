@@ -5,7 +5,7 @@ from ultralytics import YOLO
 from tracker import *
 
 #importa modelo do Yolo
-model=YOLO('yolov8s.pt')
+model=YOLO("yolov8s.pt")
 
 #Cria o primeiro retangulo para marcar a passagem
 
@@ -21,10 +21,10 @@ def RGB(event, x, y, flags, param):
         print(colorsBGR)
         
 
-cv2.namedWindow('RGB')
-cv2.setMouseCallback('RGB', RGB)
+cv2.namedWindow("RGB")
+cv2.setMouseCallback("RGB", RGB)
 
-cap=cv2.VideoCapture('./Reconehcimento_Yolo/Tcc_Yolo/Contador_de_pessoas/peoplecount1.mp4')
+cap=cv2.VideoCapture("./Reconehcimento_Yolo/Tcc_Yolo/Contador_de_pessoas/peoplecount1.mp4")
 
 #Arquivo com lista de possiveis classes que o Yolo detecta
 my_file = open("./Reconehcimento_Yolo/Tcc_Yolo/Contador_de_pessoas/Classes.txt", "r")
@@ -64,7 +64,7 @@ while True:
         c=class_list[d]
 
         #condição para detectar person
-        if 'person' in c:
+        if "person" in c:
 
             resutado = cv2.pointPolygonTest(np.array(area2, np.int32), ((x2, y2)), False)
             if resutado >= 0:
@@ -81,11 +81,11 @@ while True:
             
     #Colocando cor na area 1
     cv2.polylines(frame,[np.array(area1,np.int32)],True,(255,0,0),2)
-    cv2.putText(frame,str('1'),(504,471),cv2.FONT_HERSHEY_COMPLEX,(0.5),(0,0,0),1)
+    cv2.putText(frame,str("1"),(504,471),cv2.FONT_HERSHEY_COMPLEX,(0.5),(0,0,0),1)
 
     #Colocando cor na area 2
     cv2.polylines(frame,[np.array(area2,np.int32)],True,(255,0,0),2)
-    cv2.putText(frame,str('2'),(466,485),cv2.FONT_HERSHEY_COMPLEX,(0.5),(0,0,0),1)
+    cv2.putText(frame,str("2"),(466,485),cv2.FONT_HERSHEY_COMPLEX,(0.5),(0,0,0),1)
 
     cv2.imshow("RGB", frame)
     if cv2.waitKey(0)&0xFF==27:
